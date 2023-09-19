@@ -37,8 +37,8 @@ const Navbar = () => {
                     </li>
                     <li className="flex items-center gap-4">
                         <Link to="/menu">Menu</Link>
-                        <Link to="/auth/signup">Signup</Link>
-                        <Link to="/auth/login">Login</Link>
+                        <Link to="/signup">Signup</Link>
+                        <Link to="/login">Login</Link>
                     </li>
                     <li>
                         <button>Cart</button>
