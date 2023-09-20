@@ -1,14 +1,26 @@
 import { Link }  from "react-router-dom";
 import logo from "../assets/logo.png"
+import { AuthContext } from "../context/auth.context";
+import { useContext } from "react";
+
 
 const Navbar = () => {
+
+    const { isLoggedIn, logOutUser }  = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOutUser();
+    }
+
     return (
         <>
-            {/* <nav>
+
+            {isLoggedIn  ?   
+            <nav>
                 <ul className="flex justify-around items-center"> 
                     <li>
                         <Link to="/" className="flex items-center gap-4">
-                                Change this image
+                                {/* Change this image */}
                                 <img src={logo} alt="Pizza Logo" width="50" height="50"/>
                                 <h3>Pizza Planet</h3>
                         </Link>
@@ -21,11 +33,12 @@ const Navbar = () => {
                         <Link to="/users/create-my-pizza">Create My Pizza</Link>
                     </li>
                     <li className="flex gap-4">
-                        <button onClick={{}} >Logout</button>
+                        <button onClick={handleLogout}>Logout</button>
                         <button>Cart</button>
                     </li>
                 </ul>
-            </nav> */}
+            </nav> 
+                        : 
             <nav>
                 {/* Not well centered */}
                 <ul className="flex justify-around items-center gap-4">
@@ -44,9 +57,11 @@ const Navbar = () => {
                         <button>Cart</button>
                     </li>
                 </ul>
-            </nav>
+            </nav> 
+            }
         </>
     )
 }
 
 export default Navbar;
+
