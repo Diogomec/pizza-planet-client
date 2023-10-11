@@ -7,10 +7,8 @@ const HomePage = () => {
     return (
         <>
             <Navbar/>
-                <div className="min-h-[29rem]">
-                   <form>
-                    <input></input>
-                   </form>
+                <div className="min-h-[46rem]">
+
                 </div>
             <Footer/>
         </>

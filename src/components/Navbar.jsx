@@ -17,7 +17,7 @@ const Navbar = () => {
 
             {isLoggedIn  ?   
             <nav>
-                <ul className="flex justify-around items-center"> 
+                <ul className="flex items-center "> 
                     <li>
                         <Link to="/" className="flex items-center gap-4">
                                 {/* Change this image */}
@@ -41,19 +41,19 @@ const Navbar = () => {
                         : 
             <nav>
                 {/* Not well centered */}
-                <ul className="flex justify-around items-center gap-4">
+                <ul className="flex items-center w-full justify-between ">
                     <li>
-                        <Link to="/" className="flex items-center gap-4">
+                        <Link to="/" className="flex items-center gap-4 ml-5">
                             <img src={logo} alt="Pizza Logo" width="50" height="50"/>
                             <h3>Pizza Planet</h3>
                         </Link>
                     </li>
-                    <li className="flex items-center gap-4">
+                    <li className="flex  gap-4 justify-center mr-[8rem]">
                         <Link to="/menu">Menu</Link>
                         <Link to="/signup">Signup</Link>
                         <Link to="/login">Login</Link>
                     </li>
-                    <li>
+                    <li className=" flex justify-end mr-10">
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3
