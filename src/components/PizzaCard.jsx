@@ -3,13 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 
 const PizzaCard = ({pizza}) => {
 
+
     return (
         <>
              <div className="flex justify-center mt-8 flex-wrap gap-4">
                                 <div className="border-white border-solid border-4 w-72 h-[28rem] rounded">
                                     <h3 className="text-center my-2">{pizza.name}</h3>
                                     <div className="flex justify-center"> 
-                                    <img src="https://res.cloudinary.com/dghhwit03/image/upload/v1692629077/movie-gallery/xbldd5jamdnqlgryb9bl.jpg" width="250px" className="rounded" ></img>
+                                    <img src={pizza.imageUrl} width="250px" className="rounded" ></img>
                                     </div>
                                     <div className=" flex flex-col items-center justify-center">
                                     <select className="text-black mt-4">

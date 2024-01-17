@@ -40,19 +40,26 @@ const SignupPage = () => {
     return (
                 <>
                     <Navbar/>
-                    <div className=" min-h-[42rem]">
-                        <form className="flex flex-col items-center mt-14 border-2 w-96 m-auto pt-16 rounded" onSubmit={handleSignup}>
-                            <label className="mb-1">Name</label>
-                            <input className=" border-2 rounded text-black" value={name} onChange={handleChangeName} placeholder="Tommy" type="text"></input>
-                            <label className="mt-8 mb-1">Email</label>
-                            <input className=" border-2 rounded text-black" value={email} onChange={handleChangeEmail} placeholder="user@planetpizza.com" type="email"></input>
-                            <label className="mt-8 mb-1">Password</label>
-                            <input className=" border-2 rounded text-black" value={password} onChange={handleChangePassword} placeholder="******" type="password"></input>
-                            <button className="border-2 my-12 border-white px-12 py-1 rounded hover:bg-white hover:text-black" type="submit">Sign Up</button>
-                        </form>
-                        {errorMessage && <div className=" w-full flex justify-center">
-                                    <p className="text-center mt-14 border-4 border-red-600 px-8 py-2 rounded">{errorMessage}</p>
-                                 </div>}
+                    <div className="flex justify-center">
+                        <div className=" w-3/4  flex justify-between">
+                            <div className="w-1/2">
+                                <form className="flex flex-col items-center m-auto rounded" onSubmit={handleSignup}>
+                                    <label className="mb-1">Name</label>
+                                    <input className=" border-2 rounded text-black" value={name} onChange={handleChangeName} placeholder="Tommy" type="text"></input>
+                                    <label className="mt-8 mb-1">Email</label>
+                                    <input className=" border-2 rounded text-black" value={email} onChange={handleChangeEmail} placeholder="user@planetpizza.com" type="email"></input>
+                                    <label className="mt-8 mb-1">Password</label>
+                                    <input className=" border-2 rounded text-black" value={password} onChange={handleChangePassword} placeholder="******" type="password"></input>
+                                    <button className="border-2 my-12 border-white px-12 py-1 rounded hover:bg-white hover:text-black" type="submit">Sign Up</button>
+                                </form>
+                            </div>
+                            <div className=" bg-white w-1/2">
+                                    rfgedrsr
+                            </div>
+                            {errorMessage && <div className=" w-full flex justify-center">
+                                                <p className="text-center mt-14 border-4 border-red-600 px-8 py-2 rounded">{errorMessage}</p>
+                                            </div>}
+                        </div> 
                     </div>
                     <Footer/>
                 </>

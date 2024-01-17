@@ -7,7 +7,7 @@ const HomePage = () => {
     return (
         <>
             <Navbar/>
-                <div className="min-h-[46rem]">
+                <div className="min-h-[50rem]">
 
                 </div>
             <Footer/>

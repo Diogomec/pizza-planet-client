@@ -8,6 +8,9 @@ import LoginPage from './pages/LoginPage'
 function App() {
   return (
     <>
+    <div className="universe">
+         <div className="stars"></div>
+      </div>
     <Routes>
       <Route path="/" element={<HomePage/>}></Route>
       <Route path='/menu' element={<MenuPage/>}></Route>
