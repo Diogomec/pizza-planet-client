@@ -5,8 +5,8 @@ import authService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 
 
-
 const SignupPage = () => {
+    
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -40,6 +40,7 @@ const SignupPage = () => {
     return (
                 <>
                     <Navbar/>
+
                     <div className="flex justify-center">
                         <div className=" w-3/4  flex justify-between">
                             <div className="w-1/2">

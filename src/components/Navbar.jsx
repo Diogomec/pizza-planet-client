@@ -1,10 +1,65 @@
-import { Link }  from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate }  from "react-router-dom";
 import logo from "../assets/logo.png"
 import { AuthContext } from "../context/auth.context";
-import { useContext, useState } from "react";
+import authService from "../services/auth.service";
+import { Button, Modal } from '@mui/material';
+
 
 
 const Navbar = () => {
+
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [errorMessage, setErrorMessage] = useState(undefined);
+
+    const navigate = useNavigate()
+
+    const handleChangeName = (e) =>  setName(e.target.value);
+    const handleChangeEmail = (e) =>  setEmail(e.target.value);
+    const handleChangePassword = (e) =>  setPassword(e.target.value);
+
+    const handleSignup = (e) => {
+        e.preventDefault()
+
+        const requestBody = {name, email, password};
+
+        authService
+        .signup(requestBody)
+        .then(() => {
+            setErrorMessage("");
+            navigate("/login")
+        })
+        .catch((error) => {
+            
+            const errorDescription = error.response.data.message;
+            setErrorMessage(errorDescription);
+            
+          });
+    }
+
+    const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
 
     const { isLoggedIn, logOutUser }  = useContext(AuthContext)
 
@@ -12,7 +67,6 @@ const Navbar = () => {
 
     const hamburguerMenuClick = () => {
         setHamburguerMenu(!hamburguerMenu)
-        // console.log(hamburguerMenu)
     }
 
     const handleLogout = () => {
@@ -57,7 +111,25 @@ const Navbar = () => {
                     </li>
                     <li className="flex  gap-4 justify-center mr-[8rem]">
                         <Link to="/menu">Menu</Link>
-                        <Link to="/signup">Signup</Link>
+                        <Button onClick={handleOpen}>Signup</Button>
+                        <Modal
+  open={open}
+  onClose={handleClose}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <div className=" w-3/4">
+                                <form className="flex flex-col items-center m-auto mt-40 rounded" onSubmit={handleSignup}>
+                                    <label className="mb-1">Name</label>
+                                    <input className=" border-2 rounded text-black" value={name} onChange={handleChangeName} placeholder="Tommy" type="text"></input>
+                                    <label className="mt-8 mb-1">Email</label>
+                                    <input className=" border-2 rounded text-black" value={email} onChange={handleChangeEmail} placeholder="user@planetpizza.com" type="email"></input>
+                                    <label className="mt-8 mb-1">Password</label>
+                                    <input className=" border-2 rounded text-black" value={password} onChange={handleChangePassword} placeholder="******" type="password"></input>
+                                    <button className="border-2 my-12 border-white px-12 py-1 rounded hover:bg-white hover:text-black" type="submit">Sign Up</button>
+                                </form>
+                            </div>
+</Modal>
                         <Link to="/login">Login</Link>
                     </li>
                     <li className=" flex justify-end mr-10">
